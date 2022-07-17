@@ -1,0 +1,23 @@
+{
+    "eslint.enable": true,
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "babel.config.js": true,
+        ".markdownlint*": true,
+        // ".eslintrc.js": true,
+        // ".npmignore": true,
+        // ".gitignore": true,
+        // "tsconfig.js*": true,
+        // "源代码/发布的源代码/typescript": true,
+        // "源代码/发布的源代码/javascript": true,
+        // "源代码/发布的源代码/types": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "源代码/发布的源代码": true,
+        "**/package-lock.json": true
+    }
+}
