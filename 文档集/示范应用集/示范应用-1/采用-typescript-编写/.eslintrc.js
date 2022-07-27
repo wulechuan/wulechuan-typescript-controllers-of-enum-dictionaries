@@ -1,5 +1,6 @@
 module.exports = {
     rules: {
+        '@typescript-eslint/no-non-null-assertion': 0,
         'no-unused-vars': 0,
         'import/no-unresolved': 0,
         'import/no-extraneous-dependencies': 0,
