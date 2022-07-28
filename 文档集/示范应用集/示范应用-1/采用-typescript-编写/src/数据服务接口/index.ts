@@ -5,7 +5,7 @@ import type {
 export function 伪XHR接口_字典甲_获取数据列表 (): Promise<Array<范_本应用中一切字典之数据原项>> {
     return new Promise(落实 => setTimeout(落实, 219)).then(() => {
         const 数据列表: Array<范_本应用中一切字典之数据原项> = [
-            '九章',
+            '九章算术',
             '诗经',
             '尚书',
             '楚辞',

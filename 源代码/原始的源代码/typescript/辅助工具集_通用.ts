@@ -4,7 +4,7 @@ export type 范_任意对象 = { [键: string]: any; };
 
 
 
-export function 是合规的非列表对象 (待检验的值: any): boolean {
+export function 是合规的非列表对象 (待检验的值: any): 待检验的值 is 范_任意对象 {
     return !!待检验的值 && typeof 待检验的值 === 'object' && !Array.isArray(待检验的值)
 }
 
