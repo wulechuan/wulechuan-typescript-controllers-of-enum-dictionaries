@@ -14,7 +14,7 @@
                                 <el-option
                                     :key="字典界面项.唯一标识"
                                     :value="字典界面项.唯一标识"
-                                    :label="字典界面项.在界面中的称谓"
+                                    :label="字典界面项.呈示称谓"
                                 ></el-option>
                             </template>
                         </el-select>
@@ -31,7 +31,7 @@
                                 <el-option
                                     :key="字典界面项.唯一标识"
                                     :value="字典界面项.唯一标识"
-                                    :label="字典界面项.在界面中的称谓"
+                                    :label="字典界面项.呈示称谓"
                                 ></el-option>
                             </template>
                         </el-select>
@@ -48,7 +48,7 @@
                                 <el-option
                                     :key="字典界面项.唯一标识"
                                     :value="字典界面项.唯一标识"
-                                    :label="字典界面项.在界面中的称谓"
+                                    :label="字典界面项.呈示称谓"
                                 ></el-option>
                             </template>
                         </el-select>
@@ -140,7 +140,7 @@ export default class Page示范页1_常见的双列互通之形式 extends Vue {
                             字典条目之视式: {
                                 唯一标识: '-全-',
                                 值: '-全-',
-                                // 在界面中的称谓: '〔全选〕',
+                                // 呈示称谓: '〔全选〕',
                             },
                         },
                     },

@@ -6,7 +6,7 @@
                 :key="条目.唯一标识"
                 class="应用总导航-条目"
             >
-                <router-link :to="条目.路由之绝对路径">{{ 条目.在界面中的称谓 }}</router-link>
+                <router-link :to="条目.路由之绝对路径">{{ 条目.呈示称谓 }}</router-link>
             </li>
         </ol>
     </nav>
@@ -29,14 +29,14 @@ import { Vue, Component } from 'vue-property-decorator'
 
 export type 范_导航配置条目 = {
     内部名称: string;
-    在界面中的称谓?: string;
+    呈示称谓?: string;
     在网页标题中的称谓?: string;
     路由之绝对路径: string;
 }
 
 export type 范_导航内部实用条目 = 范_导航配置条目 & {
     唯一标识: string;
-    在界面中的称谓: string;
+    呈示称谓: string;
     在网页标题中的称谓: string;
 }
 
@@ -68,14 +68,14 @@ export default class App总导航 extends Vue {
             } = 配置条目
 
             let {
-                在界面中的称谓,
+                呈示称谓,
                 在网页标题中的称谓,
             } = 配置条目
 
-            if (typeof 在界面中的称谓 !== 'string' || !在界面中的称谓.trim()) {
-                在界面中的称谓 = 内部名称
+            if (typeof 呈示称谓 !== 'string' || !呈示称谓.trim()) {
+                呈示称谓 = 内部名称
             } else {
-                在界面中的称谓 = 在界面中的称谓.trim()
+                呈示称谓 = 呈示称谓.trim()
             }
 
             if (typeof 在网页标题中的称谓 !== 'string' || !在网页标题中的称谓.trim()) {
@@ -95,7 +95,7 @@ export default class App总导航 extends Vue {
             return {
                 ...配置条目,
                 唯一标识,
-                在界面中的称谓,
+                呈示称谓,
                 在网页标题中的称谓,
             }
         })

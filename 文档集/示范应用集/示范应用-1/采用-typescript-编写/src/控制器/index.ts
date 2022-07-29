@@ -25,5 +25,5 @@ export const 任何字典_凭该字典条目之原式之集构建诸字典条目
 
 export const 任何字典_凭该字典某条目之原式构建该条目之视式_默认做法: 范_本应用中一切字典机_凭该字典某条目之原式构建该条目之视式之行为 = function (某字典条目之原式) {
     const { id, label } = 某字典条目之原式
-    return { 唯一标识: id, 在界面中的称谓: label, 值: id }
+    return { 唯一标识: id, 呈示称谓: label, 值: id }
 }
