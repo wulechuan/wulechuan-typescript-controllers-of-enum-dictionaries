@@ -152,11 +152,13 @@ export default class Page示范页1 extends Vue {
                             const { 字典机_字典乙 } = this
                             if (!字典机_字典乙) { return Promise.resolve([]) }
 
-                            const 字典乙之字典诸条目之原式_其列表 = 字典机_字典乙.数据集.字典诸条目之原式_其列表
-                            if (!Array.isArray(字典乙之字典诸条目之原式_其列表)) { return Promise.resolve([]) }
+                            const 字典乙诸条目之原式_其列表 = 字典机_字典乙.数据集.字典诸条目之原式_其列表
+                            if (!Array.isArray(字典乙诸条目之原式_其列表)) { return Promise.resolve([]) }
 
                             return Promise.resolve(
-                                字典乙之字典诸条目之原式_其列表.filter(乙之某字典条目之原式 => /明制/.test(乙之某字典条目之原式.label))
+                                字典乙诸条目之原式_其列表.filter(
+                                    字典乙某条目之原式 => /明制/.test(字典乙某条目之原式.label)
+                                )
                             )
                         },
                     },
@@ -165,7 +167,9 @@ export default class Page示范页1 extends Vue {
 
             事件处理程序集: {
                 任何字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
+
                 任何字典_凭某条目之原式构建其视式_默认做法,
+
                 任何字典_某次数据重建后 (该字典群之总机, 所涉字典机): void {
                     if (所涉字典机.该字典之唯一标识 === '字典乙') {
                         该字典群之总机.为.取某字典机('字典丙')?.为.重建数据()
