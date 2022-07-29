@@ -1,22 +1,22 @@
 import {
     构建字典群之总机,
-    范_数据视项_默认形态,
+    范_字典条目之视式_默认形态,
 } from '@wulechuan/controller-of-dictionaries'
 
 const FakeVue = {}
 
-type 范_数据原项 = {
+type 范_字典条目之原式 = {
     id: string;
     label: string;
 }
 
-const 总机 = 构建字典群之总机<范_数据视项_默认形态, 范_数据原项, typeof FakeVue>(FakeVue, {
+const 总机 = 构建字典群之总机<范_字典条目之视式_默认形态, 范_字典条目之原式, typeof FakeVue>(FakeVue, {
     最初的一批用以构建字典机的配置项集之列表: [
         {
             该字典之唯一标识: '字典甲',
             事件处理程序集: {
                 构建或获取原始数据集 () {
-                    const 数据原项集: 范_数据原项[] = [
+                    const 字典条目之原式集: 范_字典条目之原式[] = [
                         {
                             id: '99',
                             label: 'xxx',
@@ -27,7 +27,7 @@ const 总机 = 构建字典群之总机<范_数据视项_默认形态, 范_数�
                         },
                     ]
 
-                    return Promise.resolve(数据原项集)
+                    return Promise.resolve(字典条目之原式集)
                 },
             },
         },
