@@ -267,9 +267,9 @@ export default class Page示范页1 extends Vue {
          */
         setTimeout(this.令已经存在的字典乙重建数, 9981)
 
-        // setTimeout(this.重新所有字典, 333)
-        // setTimeout(this.重新所有字典, 3333)
-        // setTimeout(this.重新所有字典, 13333)
+        setTimeout(this.重新所有字典, 333)
+        setTimeout(this.重新所有字典, 3333)
+        setTimeout(this.重新所有字典, 13333)
     }
 }
 </script>
