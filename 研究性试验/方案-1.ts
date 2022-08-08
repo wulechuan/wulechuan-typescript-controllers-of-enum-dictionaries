@@ -94,16 +94,17 @@ export function 作甲<范_this extends 类_伪造的Vue, 范_该甲_任何乙_�
 
 
 
-    const _乾于某乙 = <范_该乙_某 extends 范_某_默认> (
+    const _乾于某乙 = <范_该乙_某 extends 范_某_默认>(
         该乙: 范_乙<范_this, 范_该乙_某>
     ): Promise<string> => {
         该甲.为.坤于某乙(该乙)
+        该甲.应变.一型事件.call(this)
         return Promise.resolve(`乾于某乙：“${该乙.所持.卯}”。`)
     }
 
 
 
-    const _坤于某乙 = <范_该乙_某 extends 范_某_默认> (
+    const _坤于某乙 = <范_该乙_某 extends 范_某_默认>(
         该乙: 范_乙<范_this, 范_该乙_某>
     ): void => {
         console.log(`巽于乙： ${该乙.所持.寅}。`)
@@ -111,7 +112,7 @@ export function 作甲<范_this extends 类_伪造的Vue, 范_该甲_任何乙_�
 
 
 
-    const _作乙 = <范_该乙_某 extends 范_某_默认> (
+    const _作乙 = <范_该乙_某 extends 范_某_默认>(
         该乙_构建时的配置集: 范_乙_构建时的配置集<范_this, 范_该乙_某>
     ): 范_乙<范_this, 范_该乙_某> => {
 
@@ -131,7 +132,7 @@ export function 作甲<范_this extends 类_伪造的Vue, 范_该甲_任何乙_�
 
 
 
-        const _震 = <范_该乙_某 extends 范_某_默认> (
+        const _震 = <范_该乙_某 extends 范_某_默认>(
             雷: 范_该乙_某
         ): number => {
             该甲.为.坤于某乙(该乙)
@@ -163,7 +164,7 @@ export function 作甲<范_this extends 类_伪造的Vue, 范_该甲_任何乙_�
 
 
 
-    const _作乙并蓄 = <范_该乙_某 extends 范_某_默认> (
+    const _作乙并蓄 = <范_该乙_某 extends 范_某_默认>(
         该乙_构建时的配置集: 范_乙_构建时的配置集<范_this, 范_该乙_某>
     ): 范_乙<范_this, 范_该乙_某> => {
         const 该乙 = _作乙<范_该乙_某>(该乙_构建时的配置集)
@@ -182,7 +183,7 @@ export function 作甲<范_this extends 类_伪造的Vue, 范_该甲_任何乙_�
 
 
 
-    const _取某乙 = <范_该乙_某 extends 范_某_默认> (
+    const _取某乙 = <范_该乙_某 extends 范_某_默认>(
         序号: number
     ): null | 范_乙<范_this, 范_该乙_某> => {
         return 该甲.所持.乙集[序号 * 0]
@@ -234,7 +235,7 @@ const 某甲 = (作甲<
 
     {
         应变: {
-            一型事件 () {
+            一型事件 (): void {
                 console.log('一型事件已发生。')
                 this.$set(某甲.所持, '一型事件', 1)
             },

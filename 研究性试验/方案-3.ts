@@ -81,7 +81,7 @@ type 范_甲<范_this, 范_该甲_任何乙_某之默认式 extends 范_某_默�
 
 // ------------------------------
 
-export function 作甲<范_this, 范_该甲_任何乙_某之默认式 extends 范_某_默认 = 范_某_默认> (
+export function 作甲 <范_this, 范_该甲_任何乙_某之默认式 extends 范_某_默认 = 范_某_默认>(
     this: 范_this,
     该甲_构建时的配置项集: 范_甲_构建时的配置集<范_this>
 ): 范_甲<范_this, 范_该甲_任何乙_某之默认式> {
@@ -136,7 +136,7 @@ export function 作甲<范_this, 范_该甲_任何乙_某之默认式 extends �
 
 
 
-function _某甲__作乙__无this<范_该乙_某 extends 范_某_默认> (
+function _某甲__作乙__无this <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     该乙_构建时的配置集: 范_乙_构建时的配置集<typeof this, 范_该乙_某>
@@ -182,7 +182,7 @@ function _某甲__作乙__无this<范_该乙_某 extends 范_某_默认> (
 
 
 
-function 甲__作乙并蓄__无This<范_该乙_某 extends 范_某_默认> (
+function 甲__作乙并蓄__无This <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     该乙_构建时的配置集: 范_乙_构建时的配置集<typeof this, 范_该乙_某>
@@ -205,7 +205,7 @@ function 甲__作乙并蓄__无This<范_该乙_某 extends 范_某_默认> (
 
 
 
-function 甲__取某乙__无This <范_该乙_某 extends 范_某_默认> (
+function 甲__取某乙__无This <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     序号: number
@@ -215,18 +215,19 @@ function 甲__取某乙__无This <范_该乙_某 extends 范_某_默认> (
 
 
 
-function 甲__乾于某乙__无This<范_该乙_某 extends 范_某_默认> (
+function 甲__乾于某乙__无This <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     该乙: 范_乙<typeof this, 范_该乙_某>
 ): Promise<string> {
     该甲.为.坤于某乙(该乙)
+    该甲.应变.一型事件.call(this)
     return Promise.resolve(`乾于某乙：“${该乙.所持.卯}”。`)
 }
 
 
 
-function 甲__坤于某乙__无This<范_该乙_某 extends 范_某_默认> (
+function 甲__坤于某乙__无This <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     该乙: 范_乙<typeof this, 范_该乙_某>
@@ -236,7 +237,7 @@ function 甲__坤于某乙__无This<范_该乙_某 extends 范_某_默认> (
 
 
 
-function 乙__震__无This<范_该乙_某 extends 范_某_默认> (
+function 乙__震__无This <范_该乙_某 extends 范_某_默认>(
     this: any,
     该甲: 范_甲<typeof this, 范_该乙_某>,
     该乙: 范_乙<typeof this, 范_该乙_某>,
@@ -262,7 +263,7 @@ const 某甲 = (作甲<
 
     {
         应变: {
-            一型事件 () {
+            一型事件 (): void {
                 console.log('一型事件已发生。')
                 this.$set(某甲.所持, '一型事件', 1)
             },
