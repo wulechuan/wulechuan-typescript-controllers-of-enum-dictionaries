@@ -13,7 +13,7 @@
         "./源代码/发布的源代码/*": "./源代码/发布的源代码/*"
     },
     "main": "./源代码/发布的源代码/javascript/index.js",
-    "types": "./源代码/发布的源代码/types/index.d.ts",
+    "types": "./源代码/发布的源代码/types",
     "directories": {
         "source": "源代码/原始的源代码",
         "dist": "源代码/发布的源代码",
