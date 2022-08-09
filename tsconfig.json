@@ -11,8 +11,7 @@
         "esModuleInterop": true,
         "rootDir": "./源代码/原始的源代码/typescript",
         "outDir": "./源代码/发布的源代码/javascript",
-        "declaration": true,
-        "declarationDir": "./源代码/发布的源代码/types"
+        "declaration": false
     },
     "include": [
         "./源代码/原始的源代码",

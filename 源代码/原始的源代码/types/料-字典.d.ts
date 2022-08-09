@@ -39,11 +39,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
 
 
-    export const 字典特别条目_其代表全选者_默认的呈示称谓 = '〔全选〕'
-
-    export const 字典特别条目_其代表全都不选者_默认的呈示称谓 = '〔全都不选〕'
-
-    export type 范_字典_字典特别条目_其代表全选者_准用式<
+    export type 范_字典_字典特别条目_其代表全选者_形参准用式<
         范_该字典_条目视式 extends 范_字典条目之视式_最简式 = 范_字典条目之视式_最简式<any>
     > = {
         应位于候选列表之该处?: '首部' | '尾部';
@@ -59,7 +55,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         字典条目之视式: 范_该字典_条目视式;
     };
 
-    export type 范_字典_字典特别条目_其代表全都不选者_准用式<
+    export type 范_字典_字典特别条目_其代表全都不选者_形参准用式<
         范_该字典_条目视式 extends 范_字典条目之视式_最简式 = 范_字典条目之视式_最简式<any>
     > = {
         应位于候选列表之该处?: '首部' | '尾部';

@@ -10,10 +10,11 @@
     },
     "exports": {
         ".": "./源代码/发布的源代码/javascript/index.js",
+        "./源代码/原始的源代码/typescript/*": "./源代码/原始的源代码/typescript/*",
         "./源代码/发布的源代码/*": "./源代码/发布的源代码/*"
     },
     "main": "./源代码/发布的源代码/javascript/index.js",
-    "types": "./源代码/发布的源代码/types",
+    "types": "./源代码/原始的源代码/types/index.d.ts",
     "directories": {
         "source": "源代码/原始的源代码",
         "dist": "源代码/发布的源代码",

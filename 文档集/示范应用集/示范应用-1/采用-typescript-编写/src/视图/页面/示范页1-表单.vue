@@ -80,13 +80,8 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 
-import {
-    作一字典群之总机,
-} from '@wulechuan/controllers-of-enum-dictionaries'
-
 import type {
     范_字典_唯一标识,
-    范_工厂函数_作一字典群之总机,
 } from '@wulechuan/controllers-of-enum-dictionaries'
 
 import type {
@@ -94,8 +89,12 @@ import type {
     范_本应用中一切字典之字典条目之视式,
     范_本应用中一切字典群之总机,
     范_本应用中一切字典机,
-    范_字典机_形制要求总集_准用式,
+    范_本应用中一切字典机_形制要求总集_形参准用式,
 } from '@/数据服务接口/types'
+
+import {
+    作一字典群之总机,
+} from '@wulechuan/controllers-of-enum-dictionaries'
 
 import {
     伪XHR接口_字典甲_获取数据列表,
@@ -117,10 +116,7 @@ const 消息前缀 = '示范页1：'
 
 
 
-const 诸字典之构建配置总集之列表: 范_字典机_形制要求总集_准用式<
-    范_本应用中一切字典之字典条目之原式,
-    范_本应用中一切字典之字典条目之视式
->[] = [
+const 诸字典之构建配置总集之列表: Array<范_本应用中一切字典机_形制要求总集_形参准用式<Page示范页1>> = [
     {
         该字典之唯一标识: '字典甲',
         诸事之应对: { 构建或获取该字典所有条目之原式: 伪XHR接口_字典甲_获取数据列表 },
@@ -149,7 +145,7 @@ const 诸字典之构建配置总集之列表: 范_字典机_形制要求总集_
         },
 
         诸事之应对: {
-            构建或获取该字典所有条目之原式 (this: Page示范页1) {
+            构建或获取该字典所有条目之原式 () {
                 const 字典机_字典乙 = this.字典总机!.为.取某字典机('字典乙')
                 if (!字典机_字典乙) { return Promise.resolve([]) }
 
@@ -180,7 +176,7 @@ export default class Page示范页1 extends Vue {
 
     private 当下呈现的消息 = '暂无消息。'
 
-    private 字典总机: null | 范_本应用中一切字典群之总机<Page示范页1> = null
+    public 字典总机: null | 范_本应用中一切字典群之总机<Page示范页1> = null
 
 
 
@@ -232,12 +228,12 @@ export default class Page示范页1 extends Vue {
 
 
 
-    private mounted (this: Page示范页1): void {
-        this.字典总机 = (作一字典群之总机 as 范_工厂函数_作一字典群之总机<
+    private mounted (): void {
+        this.字典总机 = 作一字典群之总机<
+            Page示范页1,
             范_本应用中一切字典之字典条目之原式,
-            范_本应用中一切字典之字典条目之视式,
-            Page示范页1
-        >).call(
+            范_本应用中一切字典之字典条目之视式
+        >.call(
             this,
 
             {
@@ -246,11 +242,15 @@ export default class Page示范页1 extends Vue {
                 第一批字典机形制要求总集_其列表: 诸字典之构建配置总集之列表,
 
                 诸事之应对: {
-                    内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
+                    内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法 () {
+                        return 内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法<>()
+                    },
 
-                    内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
+                    内任何所谓标准字典_凭某条目之原式构建其视式_默认做法 () {
+                        return 内任何所谓标准字典_凭某条目之原式构建其视式_默认做法<>()
+                    },
 
-                    任何字典_某次数据重建后 (this: Page示范页1, 该字典群之总机, 所涉字典机) {
+                    任何字典_某次数据重建后 (该字典群之总机, 所涉字典机) {
                         if (所涉字典机.该字典之唯一标识 === '字典乙') {
                             该字典群之总机.为.取某字典机('字典丙')?.为.重建数据()
                         }

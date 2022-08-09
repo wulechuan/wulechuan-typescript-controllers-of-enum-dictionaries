@@ -1,8 +1,21 @@
+// import type {
+//     范_字典_唯一标识,
+//     范_字典条目_唯一标识,
+// } from '../types/料-字典'
+
+// import type {
+//     范_字典群之总机,
+// } from '../types/机-字典群之总机'
+
 import type {
     范_字典_唯一标识,
     范_字典条目_唯一标识,
     范_字典群之总机,
 } from '@wulechuan/controllers-of-enum-dictionaries'
+
+
+
+
 
 import {
     是合规的非列表对象,
