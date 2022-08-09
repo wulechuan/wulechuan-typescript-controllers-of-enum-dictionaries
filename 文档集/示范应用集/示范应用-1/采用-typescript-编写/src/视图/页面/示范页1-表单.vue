@@ -81,12 +81,12 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 import {
-    为某字典群作总机,
+    作一字典群之总机,
 } from '@wulechuan/controllers-of-enum-dictionaries'
 
 import type {
     范_字典_唯一标识,
-    范_工厂函数_为某字典群作总机,
+    范_工厂函数_作一字典群之总机,
 } from '@wulechuan/controllers-of-enum-dictionaries'
 
 import type {
@@ -233,7 +233,7 @@ export default class Page示范页1 extends Vue {
 
 
     private mounted (this: Page示范页1): void {
-        this.字典总机 = (为某字典群作总机 as 范_工厂函数_为某字典群作总机<
+        this.字典总机 = (作一字典群之总机 as 范_工厂函数_作一字典群之总机<
             范_本应用中一切字典之字典条目之原式,
             范_本应用中一切字典之字典条目之视式,
             Page示范页1

@@ -1,5 +1,5 @@
 import {
-    为某字典群作总机,
+    作一字典群之总机,
     范_字典条目之视式_默认形态,
 } from '@wulechuan/controller-of-dictionaries'
 
@@ -10,7 +10,7 @@ type 范_字典条目之原式 = {
     label: string;
 }
 
-const 总机 = 为某字典群作总机<范_字典条目之视式_默认形态, 范_字典条目之原式, typeof FakeVue>(FakeVue, {
+const 总机 = 作一字典群之总机<范_字典条目之视式_默认形态, 范_字典条目之原式, typeof FakeVue>(FakeVue, {
     第一批字典机形制要求总集_其列表: [
         {
             该字典之唯一标识: '字典甲',
