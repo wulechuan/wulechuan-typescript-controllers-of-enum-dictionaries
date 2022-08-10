@@ -1,3 +1,16 @@
+/**
+ * https://github.com/Microsoft/TypeScript/issues/212#issuecomment-63246576
+ */
+export function 以某This调用某函数 (
+    指定的This: any,
+    原始函数: (...参数表2: any[]) => any,
+    ...参数表: any[]
+): ReturnType<typeof 原始函数> {
+    return 原始函数.call(指定的This, ...参数表);
+}
+
+
+
 export function 是合规的非列表对象 <
     范_期望之形态 extends object
 >(

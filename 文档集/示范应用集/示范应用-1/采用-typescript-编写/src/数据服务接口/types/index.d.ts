@@ -7,6 +7,7 @@ import type {
     范_某字典群_内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
 
     范_字典群之总机,
+    范_字典群之总机_形制要求总集_形参准用式,
 } from '@wulechuan/controllers-of-enum-dictionaries'
 
 import type Vue from 'vue'
@@ -36,6 +37,14 @@ export type 范_本应用中一切字典群之总机<
     范_本应用中一切字典之字典条目之原式,
     范_本应用中一切字典之字典条目之视式
 >;
+
+// export type 范_本应用中一切字典群之总机_形制要求总集_形参准用式<
+//     范_该总机_this extends Vue = Vue,
+// > = 范_字典群之总机_形制要求总集_形参准用式<
+//     范_该总机_this,
+//     范_本应用中一切字典之条目之值,
+//     范_本应用中一切字典之字典条目之视式
+// >;
 
 export type 范_本应用中一切字典机<
     范_该总机_this extends Vue = Vue
