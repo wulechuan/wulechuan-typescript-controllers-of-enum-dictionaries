@@ -211,7 +211,21 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         范_该字典_条目视式 extends 范_字典条目之视式_最简式 = 范_字典条目之视式_最简式<any>
     > = {
         构建或获取该字典所有条目之原式: (
-            ...参数表: any[]
+            所属字典群之总机:
+                范_字典群之总机<
+                    any,
+                    any,
+                    any
+                >,
+
+            该字典机:
+                范_字典机<
+                    any,
+                    范_该字典_条目原式,
+                    范_该字典_条目视式,
+                >,
+
+            该字典机_重建数据_获得的原始参数表: any[]
         ) => Promise<Array<范_该字典_条目原式>>;
 
         凭某条目之原式构建其视式: (
@@ -257,7 +271,22 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
     > = {
         构建或获取该字典所有条目之原式?: (
             this: 范_该字典机_This,
-            ...参数表: any[]
+
+            所属字典群之总机:
+                范_字典群之总机<
+                    范_该字典机_This,
+                    any,
+                    any
+                >,
+
+            该字典机:
+                范_字典机<
+                    范_该字典机_This,
+                    范_该字典_条目原式,
+                    范_该字典_条目视式,
+                >,
+
+            该字典机_重建数据_获得的原始参数表: any[]
         ) => Promise<Array<范_该字典_条目原式>>;
 
         凭某条目之原式构建其视式?: (
@@ -333,6 +362,8 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
     > = {
         该字典之唯一标识: string;
 
+        该字典机的调试信息之详尽等级?: number;
+
         形制要求杂集?:
             范_字典机_范之零件_形制要求杂集_形参准用式<
                 范_该字典机_This
@@ -382,6 +413,8 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         态: {
             _已销毁: boolean;
 
+            该字典机的调试信息之详尽等级: number;
+
             当下的数据系某次成功构建而得的: boolean;
             该字典诸字典条目内容映射表业已构建完毕: boolean;
             当下正在构建数据: boolean;
@@ -425,7 +458,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
     >(
         this: 范_该字典机_This,
 
-        所属字典群之总机:
+        所属字典群之总机?:
             范_字典群之总机<
                 范_该字典机_This,
                 范_所属总机_内所谓标准字典_条目原式,

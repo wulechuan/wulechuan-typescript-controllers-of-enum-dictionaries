@@ -307,6 +307,8 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
          */
         该字典群之称谓?: string;
 
+        该总机的调试信息之详尽等级?: number;
+
         第一批字典机形制要求总集_其列表?: Array<
             范_字典机_形制要求总集_形参准用式<
                 范_该总机_This,
@@ -351,7 +353,8 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         };
 
         态: {
-            当下仍有字典机在构建数据: boolean,
+            该总机的调试信息之详尽等级: number;
+            当下仍有字典机在构建数据: boolean;
             期待_迄今所有批次的字典机之数据重建任务均已完成: Promise<void>;
         };
 
@@ -435,7 +438,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         范_该总机_内所谓标准字典_条目原式 = any,
         范_该总机_内所有字典_条目视式_各色形态之交集 extends 范_字典条目之视式_最简式 = 范_字典条目之视式_最简式<any>
     >(
-        该总机_This: 范_该总机_This extends object ? 范_该总机_This : undefined,
+        该总机_This: any,
 
         该字典群之总机之形制要求总集?:
             范_字典群之总机_形制要求总集_形参准用式<

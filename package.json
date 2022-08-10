@@ -18,13 +18,11 @@
     "directories": {
         "source": "源代码/原始的源代码",
         "dist": "源代码/发布的源代码",
-        "test": "测试集",
         "doc": "文档集"
     },
     "scripts": {
         "构建所有须发布的文件": "tsc",
         "每当制作集得之版本之前": "npm  i    &&    npm  run  构建所有须发布的文件",
-        "test": "tsc  -p 测试集    &&    node  \"测试集/index.js\"",
         "start": "tsc  -w",
         "prepublishOnly": "npm  run  构建所有须发布的文件"
     },

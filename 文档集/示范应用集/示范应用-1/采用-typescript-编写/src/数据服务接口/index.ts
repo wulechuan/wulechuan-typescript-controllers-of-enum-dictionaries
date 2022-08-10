@@ -1,18 +1,19 @@
 import type {
     范_本应用中一切字典之字典条目之原式,
+    范_本应用中一切字典之字典条目之原式_其列表,
 } from '@/数据服务接口/types'
 
 
 
-const 消息前缀 = '【示范项目·接口服务1】：'
+const 消息前缀 = '【示范项目·接口群1】：'
 
 
 
-export function 伪XHR接口_字典甲_获取数据列表 (): Promise<Array<范_本应用中一切字典之字典条目之原式>> {
+export function 伪XHR接口_字典甲_获取数据列表 (): Promise<范_本应用中一切字典之字典条目之原式_其列表> {
     console.log(`${消息前缀} 发起虚拟的 XHR 请求：“字典甲”。`)
 
     return new Promise(落实 => setTimeout(落实, 1234)).then(() => {
-        const 数据列表: Array<范_本应用中一切字典之字典条目之原式> = [
+        const 数据列表: 范_本应用中一切字典之字典条目之原式_其列表 = [
             '九章算术',
             '诗经',
             '尚书',
@@ -36,11 +37,11 @@ export function 伪XHR接口_字典甲_获取数据列表 (): Promise<Array<范_
 
 
 
-export function 伪XHR接口_字典乙_获取数据列表 (): Promise<Array<范_本应用中一切字典之字典条目之原式>> {
+export function 伪XHR接口_字典乙_获取数据列表 (): Promise<范_本应用中一切字典之字典条目之原式_其列表> {
     console.log(`${消息前缀} 发起虚拟的 XHR 请求：“字典乙”。`)
 
     return new Promise(落实 => setTimeout(落实, 4321)).then(() => {
-        const 数据列表: Array<范_本应用中一切字典之字典条目之原式> = [
+        const 数据列表: 范_本应用中一切字典之字典条目之原式_其列表 = [
             '霞帔',
             '明制披风',
             '明制贴里',
