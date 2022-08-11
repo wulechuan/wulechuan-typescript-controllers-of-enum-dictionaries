@@ -118,6 +118,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
          */
         范_该字典机_This = 范_字典机系统_This之默认式
     > = {
+        该字典机的调试信息之详尽等级: number;
 
         该字典构建诸字典条目内容映射表之方案: 范_单个字典构建诸字典条目内容映射表之方案;
 
@@ -148,8 +149,12 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
          */
             范_该字典机_This = 范_字典机系统_This之默认式
     > = Partial<
-        范_字典机_范之零件_形制要求杂集_完备式<
-            范_该字典机_This
+        Omit<
+            范_字典机_范之零件_形制要求杂集_完备式<
+                范_该字典机_This
+            >,
+
+            '该字典机的调试信息之详尽等级'
         >
     >;
 
@@ -437,8 +442,6 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
         态: {
             _已销毁: boolean;
-
-            该字典机的调试信息之详尽等级: number;
 
             当下的数据系某次成功构建而得的: boolean;
             该字典诸字典条目内容映射表业已构建完毕: boolean;

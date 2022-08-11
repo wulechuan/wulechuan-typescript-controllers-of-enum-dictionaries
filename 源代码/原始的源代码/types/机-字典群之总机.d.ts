@@ -353,7 +353,6 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         };
 
         态: {
-            该总机的调试信息之详尽等级: number;
             当下仍有字典机在构建数据: boolean;
             期待_迄今所有批次的字典机之数据重建任务均已完成: Promise<void>;
         };
@@ -400,6 +399,10 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
                 本次执行须筛选参与之诸字典时应采取哪种筛选方案?: 范_字典群之总机_成批重建字典数据之方案
             ) => Promise<void>;
         } & ThisType<范_该总机_This>;
+
+        形制要求杂集: {
+            该总机的调试信息之详尽等级: number;
+        };
 
         应对:
             范_字典群之总机_范之零件_诸事之应对_完备式<
