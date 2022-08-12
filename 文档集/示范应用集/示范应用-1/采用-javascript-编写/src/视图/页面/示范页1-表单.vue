@@ -77,22 +77,18 @@
 
 
 
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+<script>
+/**
+ * @typedef {import('@wulechuan/controllers-of-enum-dictionaries').范_字典_唯一标识} 范_字典_唯一标识
+ */
 
-import type {
-    范_字典_唯一标识,
-} from '@wulechuan/controllers-of-enum-dictionaries'
-
-import type {
-    范_本应用中一切字典之字典条目之原式,
-    范_本应用中一切字典之字典条目之视式,
-
-    范_本应用中一切字典群之总机,
-
-    范_本应用中一切字典机,
-    范_本应用中一切字典机_形制要求总集_形参准用式,
-} from '@/数据服务接口/types'
+/**
+ * @typedef {import('../../数据服务接口/types').范_本应用中一切字典之字典条目之原式} 范_本应用中一切字典之字典条目之原式
+ * @typedef {import('../../数据服务接口/types').范_本应用中一切字典之字典条目之视式} 范_本应用中一切字典之字典条目之视式
+ * @typedef {import('../../数据服务接口/types').范_本应用中一切字典群之总机} 范_本应用中一切字典群之总机
+ * @typedef {import('../../数据服务接口/types').范_本应用中一切字典机} 范_本应用中一切字典机
+ * @typedef {import('../../数据服务接口/types').范_本应用中一切字典机_形制要求总集_形参准用式} 范_本应用中一切字典机_形制要求总集_形参准用式
+ */
 
 
 
@@ -122,7 +118,10 @@ const 消息前缀 = '示范页1：'
 
 
 
-const 诸字典之构建配置总集之列表: Array<范_本应用中一切字典机_形制要求总集_形参准用式<Page示范页1>> = [
+/**
+ * @type {Array<范_本应用中一切字典机_形制要求总集_形参准用式>}
+ */
+const 诸字典之构建配置总集之列表 = [
     {
         该字典之唯一标识: '字典甲',
         诸事之应对: { 构建或获取该字典所有条目之原式: 伪XHR接口_字典甲_获取数据列表 },
@@ -155,7 +154,7 @@ const 诸字典之构建配置总集之列表: Array<范_本应用中一切字�
 
         诸事之应对: {
             构建或获取该字典所有条目之原式 (所属字典群之总机) {
-                const 字典机_字典乙 = 所属字典群之总机.为.取某字典机('字典乙')!
+                const 字典机_字典乙 = 所属字典群之总机.为.取某字典机('字典乙')
 
                 const 字典乙诸条目之原式_其列表 = 字典机_字典乙.所持.该字典诸条目之原式_其列表
                 if (!Array.isArray(字典乙诸条目之原式_其列表)) { return Promise.resolve([]) }
@@ -178,70 +177,91 @@ const 诸字典之构建配置总集之列表: Array<范_本应用中一切字�
 
 
 
-@Component({})
-export default class Page示范页1 extends Vue {
-    private 表单之数据 = {
-        填写项1: '',
-        填写项2: '',
-        填写项3: '',
-    }
+export default {
+    name: 'Page示范页1',
 
-    private 当下呈现的消息 = '暂无消息。'
+    data () {
+        return {
+            表单之数据: {
+                填写项1: '',
+                填写项2: '',
+                填写项3: '',
+            },
 
-    public 字典总机: null | 范_本应用中一切字典群之总机<Page示范页1> = null
+            当下呈现的消息: '暂无消息。',
+
+            /** @type */
+            字典总机: null,
 
 
-
-    private 字典机_字典甲 (): null | 范_本应用中一切字典机<Page示范页1> { return this.字典总机 && this.字典总机.为.取某字典机('字典甲') }
-    private 字典机_字典乙 (): null | 范_本应用中一切字典机<Page示范页1> { return this.字典总机 && this.字典总机.为.取某字典机('字典乙') }
-    private 字典机_字典丙 (): null | 范_本应用中一切字典机<Page示范页1> { return this.字典总机 && this.字典总机.为.取某字典机('字典丙') }
-
-    private 字典条目之视式之列表_字典甲 (): 范_本应用中一切字典之字典条目之视式[] { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典甲') }
-    private 字典条目之视式之列表_字典乙 (): 范_本应用中一切字典之字典条目之视式[] { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典乙') }
-    private 字典条目之视式之列表_字典丙 (): 范_本应用中一切字典之字典条目之视式[] { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典丙') }
-
-    private 当某表单项之值变动后 (所涉填写项之称谓: string, 新值: string, 所涉字典机: undefined | 范_本应用中一切字典机): void {
-        let 消息: string
-
-        if (!所涉字典机) {
-            消息 = `填写项【${所涉填写项之称谓}】幕后的【字典】已不存在。`
-        } else {
-            const 新值之称谓 = 所涉字典机.为.凭某条目之值求其呈示称谓(新值)
-            消息 = `填写项【${所涉填写项之称谓}】的【值】变动了。变为：“${新值之称谓}”，对应的【值】为 “${新值}” 。`
         }
+    },
 
-        console.log(`${消息前缀}\n    ${消息}`)
-        this.当下呈现的消息 = 消息
-    }
+    methods: {
+        /** @returns {null | 范_本应用中一切字典机} */
+        字典机_字典甲 () { return this.字典总机 && this.字典总机.为.取某字典机('字典甲') },
 
-    private 删除字典 (字典之唯一标识: 范_字典_唯一标识): void {
-        this.字典总机?.为.删除一批字典([ 字典之唯一标识 ])
+        /** @returns {null | 范_本应用中一切字典机} */
+        字典机_字典乙 () { return this.字典总机 && this.字典总机.为.取某字典机('字典乙') },
 
-        const 消息 = `【字典】 “${字典之唯一标识}” 已删除。`
-        console.log(`${消息前缀}\n    ${消息}`)
-        this.当下呈现的消息 = 消息
-    }
+        /** @returns {null | 范_本应用中一切字典机} */
+        字典机_字典丙 () { return this.字典总机 && this.字典总机.为.取某字典机('字典丙') },
 
-    private 令所有字典重建数据 (): void {
-        this.字典总机?.为.令所有字典按需重建数据('强制一切字典参与，不论其是否已构建好数据')
-    }
+        /** @returns {范_本应用中一切字典之字典条目之视式[]} */
+        字典条目之视式之列表_字典甲 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典甲') },
+        字典条目之视式之列表_字典乙 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典乙') },
+        字典条目之视式之列表_字典丙 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典丙') },
 
-    private 重新创建字典乙 (): void {
-        this.字典总机?.为.追加一批字典([ 诸字典之构建配置总集之列表[1] ])
+        /**
+         * @param {string} 所涉填写项之称谓
+         * @param {string} 新值
+         * @param {undefined | 范_本应用中一切字典机} 所涉字典机
+         */
+        当某表单项之值变动后 (所涉填写项之称谓, 新值, 所涉字典机) {
+            /** @type {string} */
+            let 消息
 
-        const 消息 = '【字典】 “字典乙” 已创建。'
-        console.log(`${消息前缀}\n    ${消息}`)
-        this.当下呈现的消息 = 消息
-    }
+            if (!所涉字典机) {
+                消息 = `填写项【${所涉填写项之称谓}】幕后的【字典】已不存在。`
+            } else {
+                const 新值之称谓 = 所涉字典机.为.凭某条目之值求其呈示称谓(新值)
+                消息 = `填写项【${所涉填写项之称谓}】的【值】变动了。变为：“${新值之称谓}”，对应的【值】为 “${新值}” 。`
+            }
 
-    private 令已经存在的字典乙重建数 (): void {
-        this.字典总机?.为.取某字典机('字典乙')?.为.重建数据()
-    }
+            console.log(`${消息前缀}\n    ${消息}`)
+            this.当下呈现的消息 = 消息
+        },
 
+        /**
+         * @param {字典之唯一标识} 范_字典_唯一标识
+         */
+        删除字典 (字典之唯一标识) {
+            this.字典总机?.为.删除一批字典([ 字典之唯一标识 ])
 
+            const 消息 = `【字典】 “${字典之唯一标识}” 已删除。`
+            console.log(`${消息前缀}\n    ${消息}`)
+            this.当下呈现的消息 = 消息
+        },
 
-    private mounted (): void {
-        this.字典总机 = 作一字典群之总机<范_本应用中一切字典之字典条目之原式, 范_本应用中一切字典之字典条目之视式>(
+        令所有字典重建数据 () {
+            this.字典总机?.为.令所有字典按需重建数据('强制一切字典参与，不论其是否已构建好数据')
+        },
+
+        重新创建字典乙 () {
+            this.字典总机?.为.追加一批字典([ 诸字典之构建配置总集之列表[1] ])
+
+            const 消息 = '【字典】 “字典乙” 已创建。'
+            console.log(`${消息前缀}\n    ${消息}`)
+            this.当下呈现的消息 = 消息
+        },
+
+        令已经存在的字典乙重建数 () {
+            this.字典总机?.为.取某字典机('字典乙')?.为.重建数据()
+        },
+    },
+
+    mounted () {
+        this.字典总机 = 作一字典群之总机(
             this,
 
             {
@@ -264,9 +284,9 @@ export default class Page示范页1 extends Vue {
                 },
             }
         )
-    }
+    },
 
-    private activated (): void {
+    activated () {
         document.title = '字典群之总机·例1：表单（TypeScript）'
 
         /**
@@ -285,7 +305,7 @@ export default class Page示范页1 extends Vue {
         setTimeout(this.令所有字典重建数据, 333)
         setTimeout(this.令所有字典重建数据, 3333)
         setTimeout(this.令所有字典重建数据, 13333)
-    }
+    },
 }
 </script>
 
@@ -297,48 +317,48 @@ export default class Page示范页1 extends Vue {
 
 
 
-<style lang="stylus">
+<style lang="scss">
 /* autoprefixer: off */
 
 .页面--示范页1 {
-    height 100%
-    display flex
-    flex-direction column
-    justify-content center
-    align-items center
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .页面中央内容块 {
-        margin 0
-        width 90%
-        max-width 1000px
-        height 90%
+        margin: 0;
+        width: 90%;
+        max-width: 1000px;
+        height: 90%;
     }
 
     h3 {
-        font-size 2rem
-        text-align center
-        margin 0
-        padding 1rem
+        font-size: 2rem;
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
     }
 
     article {
-        display block
-        height 4rem
-        border-radius 0.5rem
-        border-width 1px
-        border-style solid
-        margin 1rem 0
-        padding 0.5rem 1rem
+        display: block;
+        height: 4rem;
+        border-radius: 0.5rem;
+        border-width: 1px;
+        border-style: solid;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
 
-        border-color #ccc
+        border-color: #ccc;
 
         p {
-            margin 0.25rem 0
+            margin: 0.25rem 0;
         }
     }
 
     .el-select {
-        width 100%
+        width: 100%;
     }
 }
 </style>
