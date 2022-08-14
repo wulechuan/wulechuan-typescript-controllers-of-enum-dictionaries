@@ -299,7 +299,7 @@ export default {
     },
 
     activated () {
-        document.title = '字典群之总机·例1：表单（TypeScript）'
+        document.title = '字典群之总机·例1：表单（JavaScript）'
 
         /**
          * 接口代码已故意令伪造的接口较慢，须数秒钟。
