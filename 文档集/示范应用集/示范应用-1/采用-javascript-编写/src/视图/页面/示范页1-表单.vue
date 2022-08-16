@@ -2,14 +2,30 @@
     <div class="页面 页面--示范页1">
         <div class="页面中央内容块">
             <el-row>
-                <article>
+                <article class="消息框">
                     <p>{{ 当下呈现的消息 }}</p>
                 </article>
             </el-row>
 
             <el-row>
+                <article class="任务列表">
+                    <ol>
+                        <li
+                            v-for="(某测试任务, 列表编号) in 待运行之诸任务之名称列表"
+                            :key="`${列表编号}-${某测试任务.称谓}`"
+                        ><el-checkbox
+                            v-model="某测试任务.已完毕"
+                            :disabled="true"
+                        >测试任务：{{ 某测试任务.称谓 }}</el-checkbox></li>
+                    </ol>
+                </article>
+            </el-row>
+
+            <hr>
+
+            <el-row>
                 <el-button type="danger" @click="删除字典('字典乙')">删除【字典乙】</el-button>
-                <el-button type="success" @click="重新创建字典乙()">重构【字典乙】</el-button>
+                <el-button type="success" @click="重新构建字典乙('人为按下重构按钮')">重构【字典乙】</el-button>
             </el-row>
 
             <hr>
@@ -21,10 +37,10 @@
                             v-model="表单之数据['填写项1']"
                             placeholder="请选择一种中华名典"
                             clearable
-                            @change="当某表单项之值变动后('填写项（一）', $event, 字典机_字典甲())"
+                            @change="当某表单项之值变动后('填写项（一）', $event, 字典机_字典甲)"
                         >
                             <el-option
-                                v-for="字典条目之视式 in 字典条目之视式之列表_字典甲()"
+                                v-for="字典条目之视式 in 字典条目之视式之列表_字典甲"
                                 :key="字典条目之视式.唯一标识"
                                 :value="字典条目之视式.值"
                                 :label="字典条目之视式.呈示称谓"
@@ -37,10 +53,10 @@
                             v-model="表单之数据['填写项2']"
                             placeholder="请选择一种中华服饰"
                             clearable
-                            @change="当某表单项之值变动后('填写项（二）', $event, 字典机_字典乙())"
+                            @change="当某表单项之值变动后('填写项（二）', $event, 字典机_字典乙)"
                         >
                             <el-option
-                                v-for="字典条目之视式 in 字典条目之视式之列表_字典乙()"
+                                v-for="字典条目之视式 in 字典条目之视式之列表_字典乙"
                                 :key="字典条目之视式.唯一标识"
                                 :value="字典条目之视式.值"
                                 :label="字典条目之视式.呈示称谓"
@@ -53,10 +69,10 @@
                             v-model="表单之数据['填写项3']"
                             placeholder="请选择一种中华明代服饰"
                             clearable
-                            @change="当某表单项之值变动后('填写项（三）', $event, 字典机_字典丙())"
+                            @change="当某表单项之值变动后('填写项（三）', $event, 字典机_字典丙)"
                         >
                             <el-option
-                                v-for="字典条目之视式 in 字典条目之视式之列表_字典丙()"
+                                v-for="字典条目之视式 in 字典条目之视式之列表_字典丙"
                                 :key="字典条目之视式.唯一标识"
                                 :value="字典条目之视式.值"
                                 :label="字典条目之视式.呈示称谓"
@@ -189,6 +205,16 @@ const 诸字典之构建配置总集之列表 = [
 
 
 
+/**
+ * @typedef {object} 测试任务
+ * @property {string} 称谓
+ * @property {boolean} 已完毕
+ */
+
+
+
+
+/** */
 export default {
     name: 'Page示范页1',
 
@@ -202,28 +228,41 @@ export default {
 
             当下呈现的消息: '暂无消息。',
 
-            /** @type */
+            /** @type {测试任务[]} */
+            待运行之诸任务之名称列表: [],
+
+            /** @type {范_本应用中一切字典群之总机} */
             字典总机: null,
-
-
         }
     },
 
-    methods: {
+    computed: {
         /** @returns {null | 范_本应用中一切字典机} */
-        字典机_字典甲 () { return this.字典总机 && this.字典总机.为.取某字典机('字典甲') },
+        字典机_字典甲 () { return this.字典总机 && this.字典总机.所持.字典机群.其哈希表['字典甲'] },
 
-        /** @returns {null | 范_本应用中一切字典机} */
+        /**
+         * 【字典乙】故意采用了不同于【字典甲】、【字典丙】的写法。殊途同归。
+         * @returns {null | 范_本应用中一切字典机}
+         */
         字典机_字典乙 () { return this.字典总机 && this.字典总机.为.取某字典机('字典乙') },
 
         /** @returns {null | 范_本应用中一切字典机} */
-        字典机_字典丙 () { return this.字典总机 && this.字典总机.为.取某字典机('字典丙') },
+        字典机_字典丙 () { return this.字典总机 && this.字典总机.所持.字典机群.其哈希表['字典丙'] },
 
         /** @returns {范_本应用中一切字典之字典条目之视式[]} */
-        字典条目之视式之列表_字典甲 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典甲') },
-        字典条目之视式之列表_字典乙 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典乙') },
-        字典条目之视式之列表_字典丙 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典丙') },
+        字典条目之视式之列表_字典甲 () { return !this.字典机_字典甲 ? [] : this.字典机_字典甲.所持.该字典诸条目之视式.其列表 },
 
+        /**
+         * 【字典乙】故意采用了不同于【字典甲】、【字典丙】的写法。殊途同归。
+         * @returns {范_本应用中一切字典之字典条目之视式[]}
+         */
+        字典条目之视式之列表_字典乙 () { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典乙') },
+
+        /** @returns {范_本应用中一切字典之字典条目之视式[]} */
+        字典条目之视式之列表_字典丙 () { return !this.字典机_字典丙 ? [] : this.字典机_字典丙.所持.该字典诸条目之视式.其列表 },
+    },
+
+    methods: {
         /**
          * @param {string} 所涉填写项之称谓
          * @param {string} 新值
@@ -255,20 +294,73 @@ export default {
             this.当下呈现的消息 = 消息
         },
 
-        令所有字典重建数据 () {
-            this.字典总机?.为.令所有字典按需重建数据('强制一切字典参与，不论其是否已构建好数据')
+        /**
+         * @param {string} 某次任务之补充描述
+         */
+        令所有字典重建数据 (某次任务之补充描述) {
+            const { 字典总机 } = this
+
+            if (!字典总机) { return }
+
+            const 该任务 = {
+                称谓: `令所有字典重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
+                已完毕: false,
+            }
+
+            this.待运行之诸任务之名称列表.push(该任务)
+
+            字典总机.为.令所有字典按需重建数据('强制一切字典参与，不论其是否已构建好数据').then(() => {
+                该任务.已完毕 = true
+            })
         },
 
-        重新创建字典乙 () {
-            this.字典总机?.为.追加一批字典([ 诸字典之构建配置总集之列表[1] ])
+        /**
+         * @param {string} 某次任务之补充描述
+         */
+        重新构建字典乙 (某次任务之补充描述) {
+            const { 字典总机 } = this
 
-            const 消息 = '【字典】 “字典乙” 已创建。'
+            if (!字典总机) { return }
+
+            const 该任务 = {
+                称谓: `重新构建【字典乙】 （${某次任务之补充描述 || '无补充描述'}）`,
+                已完毕: false,
+            }
+
+            this.待运行之诸任务之名称列表.push(该任务)
+
+            const 消息 = '开始构建【字典】 “字典乙” 。'
             console.log(`${消息前缀}\n    ${消息}`)
             this.当下呈现的消息 = 消息
+
+            字典总机.为.追加一批字典([ 诸字典之构建配置总集之列表[1] ]).then(() => {
+                该任务.已完毕 = true
+                const 消息 = '【字典】 “字典乙” 已构建完毕。'
+                console.log(`${消息前缀}\n    ${消息}`)
+                this.当下呈现的消息 = 消息
+            })
         },
 
-        令已经存在的字典乙重建数 () {
-            this.字典总机?.为.取某字典机('字典乙')?.为.重建数据()
+        /**
+         * @param {string} 某次任务之补充描述
+         */
+        令已经存在的字典乙重建数据 (某次任务之补充描述) {
+            const { 字典总机 } = this
+            if (!字典总机) { return }
+
+            const 字典机_字典乙 = 字典总机.为.取某字典机('字典乙')
+            if (!字典机_字典乙) { return }
+
+            const 该任务 = {
+                称谓: `令已经存在的【字典乙】重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
+                已完毕: false,
+            }
+
+            this.待运行之诸任务之名称列表.push(该任务)
+
+            字典机_字典乙.为.重建数据().then(() => {
+                该任务.已完毕 = true
+            })
         },
     },
 
@@ -306,17 +398,17 @@ export default {
          * 而下面的代码则在字典乙尚未重建完毕时故意再次要求起重建。
          * 如果代码运转如期，应在浏览器控制台中观测到消息，告知我们字典乙不会并行多个数据重建任务。
          */
-        this.$nextTick().then(this.令已经存在的字典乙重建数)
+        this.$nextTick().then(() => { this.令已经存在的字典乙重建数据('页面刚激活之后的第一个“滴答”。') })
 
         /**
          * 下面的代码则在等待足够长的时间后（确保字典乙数据重建完毕后），故意要求字典乙再次重建数据。
          * 如果代码运转如期，应观测到字典乙的确重新构建了。
          */
-        setTimeout(this.令已经存在的字典乙重建数, 9981)
+        setTimeout(() => { this.令已经存在的字典乙重建数据('页面激活约10秒后故意重建之') }, 9981)
 
-        setTimeout(this.令所有字典重建数据, 333)
-        setTimeout(this.令所有字典重建数据, 3333)
-        setTimeout(this.令所有字典重建数据, 13333)
+        setTimeout(() => { this.令所有字典重建数据('页面激活后的 333 毫秒') }, 333)
+        setTimeout(() => { this.令所有字典重建数据('页面激活后的 3333 毫秒') }, 3333)
+        setTimeout(() => { this.令所有字典重建数据('页面激活后的 13333 毫秒') }, 13333)
     },
 }
 </script>
@@ -355,7 +447,6 @@ export default {
 
     article {
         display: block;
-        height: 4rem;
         border-radius: 0.5rem;
         border-width: 1px;
         border-style: solid;
@@ -364,8 +455,38 @@ export default {
 
         border-color: #ccc;
 
-        p {
+        p, li {
             margin: 0.25rem 0;
+        }
+
+        &.消息框 {
+            height: 4rem;
+        }
+
+        &.任务列表 {
+            height: 12rem;
+            overflow: auto;
+
+            ol {
+                padding: 0 0 0 1.5rem;
+            }
+
+            li {
+                padding: 0.1rem 0.5rem;
+            }
+
+            .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+                background-color: #409eff;
+                border-color: #409eff;
+            }
+
+            .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+                border-color: white;
+            }
+
+            .el-checkbox__input.is-disabled + span.el-checkbox__label {
+                color: black;
+            }
         }
     }
 

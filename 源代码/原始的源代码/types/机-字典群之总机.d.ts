@@ -312,7 +312,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
                         范_该总机_内所有字典_条目视式_各色形态之交集
                     >
                 >
-            ) => void;
+            ) => Promise<void>;
 
             删除一批字典: (
                 欲删除之诸字典之唯一标识之列表?: 范_字典_唯一标识[]
