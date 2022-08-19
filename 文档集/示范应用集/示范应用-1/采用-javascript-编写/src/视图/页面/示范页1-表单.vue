@@ -14,9 +14,13 @@
                             v-for="(某测试任务, 列表编号) in 待运行之诸任务之名称列表"
                             :key="`${列表编号}-${某测试任务.称谓}`"
                         ><el-checkbox
-                            v-model="某测试任务.已完毕"
+                            :value="某测试任务.已完毕 || 某测试任务.已取消"
                             :disabled="true"
-                        >测试任务：{{ 某测试任务.称谓 }}</el-checkbox></li>
+                            :class="{ '已取消': 某测试任务.已取消 }"
+                        >测试任务：
+                            <em v-if="某测试任务.已取消">〔已取消〕</em>
+                            <span>{{ 某测试任务.称谓 }}</span>
+                        </el-checkbox></li>
                     </ol>
                 </article>
             </el-row>
@@ -209,6 +213,7 @@ const 诸字典之构建配置总集之列表 = [
  * @typedef {object} 测试任务
  * @property {string} 称谓
  * @property {boolean} 已完毕
+ * @property {boolean} 已取消
  */
 
 
@@ -302,9 +307,11 @@ export default {
 
             if (!字典总机) { return }
 
+            /** @type {测试任务} */
             const 该任务 = {
                 称谓: `令所有字典重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
                 已完毕: false,
+                已取消: false,
             }
 
             this.待运行之诸任务之名称列表.push(该任务)
@@ -322,9 +329,11 @@ export default {
 
             if (!字典总机) { return }
 
+            /** @type {测试任务} */
             const 该任务 = {
-                称谓: `重新构建【字典乙】 （${某次任务之补充描述 || '无补充描述'}）`,
+                称谓: `重新构建【字典】 “字典乙” （${某次任务之补充描述 || '无补充描述'}）`,
                 已完毕: false,
+                已取消: false,
             }
 
             this.待运行之诸任务之名称列表.push(该任务)
@@ -351,15 +360,19 @@ export default {
             const 字典机_字典乙 = 字典总机.为.取某字典机('字典乙')
             if (!字典机_字典乙) { return }
 
+            /** @type {测试任务} */
             const 该任务 = {
-                称谓: `令已经存在的【字典乙】重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
+                称谓: `令已经存在的【字典】 “字典乙” 重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
                 已完毕: false,
+                已取消: false,
             }
 
             this.待运行之诸任务之名称列表.push(该任务)
 
             字典机_字典乙.为.重建数据().then(() => {
                 该任务.已完毕 = true
+            }).catch(() => {
+                该任务.已取消 = true
             })
         },
     },
@@ -382,7 +395,24 @@ export default {
 
                     内任何字典_某次数据重建后_统一做法 (该字典群之总机, 所涉字典机) {
                         if (所涉字典机.该字典之唯一标识 === '字典乙') {
-                            该字典群之总机.为.取某字典机('字典丙')?.为.重建数据()
+                            const 字典机_字典丙 = 该字典群之总机.为.取某字典机('字典丙')
+
+                            if (字典机_字典丙) {
+                                /** @type {测试任务} */
+                                const 该任务 = {
+                                    称谓: '令已经存在的【字典】 “字典丙” 重建数据',
+                                    已完毕: false,
+                                    已取消: false,
+                                }
+
+                                this.待运行之诸任务之名称列表.push(该任务)
+
+                                字典机_字典丙.为.重建数据().then(() => {
+                                    该任务.已完毕 = true
+                                }).catch(() => {
+                                    该任务.已取消 = true
+                                })
+                            }
                         }
                     },
                 },
@@ -486,6 +516,22 @@ export default {
 
             .el-checkbox__input.is-disabled + span.el-checkbox__label {
                 color: black;
+            }
+
+            .已取消 {
+
+                .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+                    background-color: #f00;
+                    border-color: #f00;
+                }
+
+                .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+                    border-color: white;
+                }
+
+                .el-checkbox__input.is-disabled + span.el-checkbox__label {
+                    color: red;
+                }
             }
         }
     }
