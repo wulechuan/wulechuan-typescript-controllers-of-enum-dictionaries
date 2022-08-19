@@ -17,7 +17,7 @@ export type 范_本工具集所要求的Vue的最简式 = {
     [k: string]: any;
 };
 
-export function this应视作Vue之实例 (待检测值: any): 待检测值 is 范_本工具集所要求的Vue的最简式 {
+export function 对象应视作Vue之实例 (待检测值: any): 待检测值 is 范_本工具集所要求的Vue的最简式 {
     if (!是合规的非列表对象(待检测值)) { return false }
     const _待检测值: 范_本工具集所要求的Vue的最简式 = 待检测值 as unknown as 范_本工具集所要求的Vue的最简式
     return typeof _待检测值.$set === 'function'
