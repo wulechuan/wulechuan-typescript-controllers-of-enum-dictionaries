@@ -43,5 +43,35 @@
     "bugs": {
         "url": "https://github.com/wulechuan/wulechuan-typescript-controllers-of-enum-dictionaries/issues"
     },
-    "keywords": []
+    "keywords": [
+        "枚举型数据",
+        "枚举型数据之控制器",
+        "可枚举数据",
+        "可枚举数据之控制器",
+        "可枚举数据集",
+        "可枚举数据集之控制器",
+        "字典",
+        "字典控制器",
+        "字典机",
+        "字典群",
+        "字典组",
+        "字典集",
+        "字典群之总机",
+        "字典群之控制器",
+        "字典组之控制器",
+        "字典集之控制器",
+        "控制器",
+        "enum",
+        "enumerated-set",
+        "dictionary",
+        "dictionary controller",
+        "dictionary group",
+        "dictionary collection",
+        "dictionaries",
+        "dictionaries controller",
+        "dictionaries group",
+        "dictionaries group controller",
+        "dictionaries set",
+        "dictionaries collection"
+    ]
 }
