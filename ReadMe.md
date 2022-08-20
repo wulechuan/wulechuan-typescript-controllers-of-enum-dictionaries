@@ -306,7 +306,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
 
         为: {
             清空数据: () => void;
-            重建数据: (...用以获取字典诸条目之原式_参数表: any[]) => Promise<void>;
+            重建数据: (...参数表_用以获取字典诸条目之原式: any[]) => Promise<void>;
             凭某条目之值求其呈示称谓: (所涉条目之值?: any) => string | null | undefined;
             自毁: () => void;
         } & ThisType<范_该字典机_其This>;

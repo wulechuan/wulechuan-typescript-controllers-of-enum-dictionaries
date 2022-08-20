@@ -728,7 +728,7 @@ export function 作一字典机<
 
 
 
-    const _该字典机_重建数据 = (...用以获取字典诸条目之原式_参数表: any[]): Promise<void> => {
+    const _该字典机_重建数据 = (...参数表_用以获取字典诸条目之原式: any[]): Promise<void> => {
         if ($_该字典机已销毁) {
             // return Promise.resolve()
             return Promise.reject()
@@ -801,7 +801,7 @@ export function 作一字典机<
                 this,
                 所属字典群之总机,
                 该字典机,
-                用以获取字典诸条目之原式_参数表
+                参数表_用以获取字典诸条目之原式
             ).then(该字典诸条目之原式_其列表 => {
                 该字典机.所持.该字典诸条目之原式_其列表 = 该字典诸条目之原式_其列表
             }),
