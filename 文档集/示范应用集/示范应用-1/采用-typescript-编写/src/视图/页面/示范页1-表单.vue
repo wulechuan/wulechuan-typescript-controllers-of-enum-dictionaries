@@ -18,7 +18,7 @@
                             :disabled="true"
                             :class="{ '已取消': 某测试任务.已取消 }"
                         >测试任务：
-                            <em v-if="某测试任务.已取消">〔已取消〕</em>
+                            <em v-if="某测试任务.已取消">〔{{ 某测试任务.已取消时的表述 }}〕</em>
                             <span>{{ 某测试任务.称谓 }}</span>
                         </el-checkbox></li>
                     </ol>
@@ -30,6 +30,7 @@
             <el-row>
                 <el-button type="danger" @click="删除字典('字典乙')">删除【字典乙】</el-button>
                 <el-button type="success" @click="重新构建字典乙('人为按下重构按钮')">重构【字典乙】</el-button>
+                <el-button type="primary" @click="令所有字典重建数据('人为按下重构按钮')">令所有 {{ 当下存在的所有字典机.length }} 个字典重建数据</el-button>
             </el-row>
 
             <hr>
@@ -201,6 +202,7 @@ type 范_测试任务 = {
     称谓: string;
     已完毕: boolean;
     已取消: boolean;
+    已取消时的表述: string;
 };
 
 
@@ -232,6 +234,14 @@ export default class Page示范页1 extends Vue {
 
     private get 字典机_字典丙 (): null | 范_本应用中一切字典机<Page示范页1> { return this.字典总机 && this.字典总机.为.取某字典机('字典丙') }
 
+    private get 当下存在的所有字典机 (): 范_本应用中一切字典机<Page示范页1>[] {
+        return [
+            this.字典机_字典甲!,
+            this.字典机_字典乙!,
+            this.字典机_字典丙!,
+        ].filter(某字典机 => !!某字典机)
+    }
+
     private get 字典条目之视式之列表_字典甲 (): 范_本应用中一切字典之字典条目之视式[] { return !this.字典总机 ? [] : this.字典总机.为.取某字典诸条目之视式_其列表('字典甲') }
 
     /** 【字典乙】故意采用了不同于【字典甲】、【字典丙】的写法。殊途同归。 */
@@ -254,7 +264,22 @@ export default class Page示范页1 extends Vue {
     }
 
     private 删除字典 (字典之唯一标识: 范_字典_唯一标识): void {
-        this.字典总机?.为.删除一批字典([ 字典之唯一标识 ])
+        const { 字典总机 } = this
+
+        if (!字典总机) { return }
+
+        const 该任务: 范_测试任务 = {
+            称谓: '删除【字典】 “字典乙” ',
+            已完毕: false,
+            已取消: false,
+            已取消时的表述: '已取消',
+        }
+
+        this.待运行之诸任务之名称列表.push(该任务)
+
+        字典总机.为.删除一批字典([ 字典之唯一标识 ])
+
+        该任务.已完毕 = true
 
         const 消息 = `【字典】 “${字典之唯一标识}” 已删除。`
         console.log(`${消息前缀}\n    ${消息}`)
@@ -263,29 +288,43 @@ export default class Page示范页1 extends Vue {
 
     private 令所有字典重建数据 (某次任务之补充描述?: string): void {
         const { 字典总机 } = this
+
         if (!字典总机) { return }
 
+        const 任务称谓 = `令所有字典重建数据 （${某次任务之补充描述 || '无补充描述'}）`
+
         const 该任务: 范_测试任务 = {
-            称谓: `令所有字典重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
+            称谓: 任务称谓,
             已完毕: false,
             已取消: false,
+            已取消时的表述: '某些字典构建数据时遭遇异常',
         }
 
         this.待运行之诸任务之名称列表.push(该任务)
 
         字典总机.为.令所有字典按需重建数据('强制一切字典参与，不论其是否已构建好数据').then(() => {
             该任务.已完毕 = true
+        }).catch(() => {
+            该任务.已取消 = true
         })
+
+        // 字典总机.态.期待_迄今所有批次的字典机之数据重建任务均已完成.then(() => {
+        //     console.log(任务称谓, '全完成（所有任务皆成功）')
+        // }).catch(() => {
+        //     console.log(任务称谓, '全完成（部分任务失败）')
+        // })
     }
 
     private 重新构建字典乙 (某次任务之补充描述?: string): void {
         const { 字典总机 } = this
+
         if (!字典总机) { return }
 
         const 该任务: 范_测试任务 = {
             称谓: `重新构建【字典】 “字典乙” （${某次任务之补充描述 || '无补充描述'}）`,
             已完毕: false,
             已取消: false,
+            已取消时的表述: '遭遇异常',
         }
 
         this.待运行之诸任务之名称列表.push(该任务)
@@ -299,11 +338,22 @@ export default class Page示范页1 extends Vue {
             const 消息 = '【字典】 “字典乙” 已构建完毕。'
             console.log(`${消息前缀}\n    ${消息}`)
             this.当下呈现的消息 = 消息
+        }).catch(() => {
+            该任务.已取消 = true
         })
+
+        // const 任务称谓 = '迄今所有的数据重建任务'
+
+        // 字典总机.态.期待_迄今所有批次的字典机之数据重建任务均已完成.then(() => {
+        //     console.log(任务称谓, '全完成（所有任务皆成功）')
+        // }).catch(() => {
+        //     console.log(任务称谓, '全完成（部分任务失败）')
+        // })
     }
 
     private 令已经存在的字典乙重建数据 (某次任务之补充描述?: string): void {
         const { 字典总机 } = this
+
         if (!字典总机) { return }
 
         const 字典机_字典乙 = 字典总机.为.取某字典机('字典乙')
@@ -313,6 +363,7 @@ export default class Page示范页1 extends Vue {
             称谓: `令已经存在的【字典】 “字典乙” 重建数据 （${某次任务之补充描述 || '无补充描述'}）`,
             已完毕: false,
             已取消: false,
+            已取消时的表述: '遭遇异常',
         }
 
         this.待运行之诸任务之名称列表.push(该任务)
@@ -351,6 +402,7 @@ export default class Page示范页1 extends Vue {
                                     称谓: '令已经存在的【字典】 “字典丙” 重建数据',
                                     已完毕: false,
                                     已取消: false,
+                                    已取消时的表述: '遭遇异常',
                                 }
 
                                 this.待运行之诸任务之名称列表.push(该任务)
@@ -441,7 +493,8 @@ export default class Page示范页1 extends Vue {
         }
 
         &.任务列表 {
-            height 12rem
+            height 50vh
+            min-height 12rem
             overflow auto
 
             ol {
@@ -450,6 +503,10 @@ export default class Page示范页1 extends Vue {
 
             li {
                 padding 0.1rem 0.5rem
+            }
+
+            .el-checkbox em {
+                margin-right 2em
             }
 
             .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
