@@ -28,7 +28,7 @@
             <hr>
 
             <el-row>
-                <el-button type="danger" @click="删除字典('字典乙')">删除【字典乙】</el-button>
+                <el-button type="danger"  @click="删除字典('字典乙')">删除【字典乙】</el-button>
                 <el-button type="success" @click="重新构建字典乙('人为按下重构按钮')">重构【字典乙】</el-button>
                 <el-button type="primary" @click="令所有字典重建数据('人为按下重构按钮')">令所有 {{ 当下存在的所有字典机.length }} 个字典重建数据</el-button>
             </el-row>
