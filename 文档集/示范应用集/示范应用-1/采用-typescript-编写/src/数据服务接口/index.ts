@@ -12,7 +12,7 @@ const 消息前缀 = '【示范项目·接口群1】：'
 export function 伪XHR接口_字典甲_获取数据列表 (): Promise<范_本应用中一切字典之字典条目之原式_其列表> {
     console.log(`${消息前缀} 发起虚拟的 XHR 请求：“字典甲”。`)
 
-    return new Promise(落实 => setTimeout(落实, 1234)).then(() => {
+    return new Promise(落实 => setTimeout(落实, 6789)).then(() => {
         const 数据列表: 范_本应用中一切字典之字典条目之原式_其列表 = [
             '九章算术',
             '诗经',

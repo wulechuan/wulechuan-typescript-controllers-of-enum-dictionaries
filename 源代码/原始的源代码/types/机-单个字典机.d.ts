@@ -231,10 +231,10 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         范_该字典_条目原式 = any,
         范_该字典_条目视式 extends 范_字典条目之视式_最简式 = 范_字典条目之视式_最简式<any>
     > = {
-        构建或获取该字典所有条目之原式: (
+        构建该字典所有条目之原式: (
             this: 范_该字典机_其This,
 
-            所属字典群之总机:
+            该字典所属字典群之总机:
                 范_字典群之总机<
                     范_该字典机_其This,
                     any,
@@ -248,7 +248,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
                     范_该字典_条目视式,
                 >,
 
-            该字典机_重建数据_获得的原始参数表: any[]
+            参数表_用以获取字典诸条目之原式: any[]
         ) => Promise<Array<范_该字典_条目原式>>;
 
         凭某条目之原式构建其视式: (
@@ -271,7 +271,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         该字典每次数据重建后?: (
             this: 范_该字典机_其This,
 
-            所属字典群之总机:
+            该字典所属字典群之总机:
                 范_字典群之总机<
                     范_该字典机_其This,
                     any,
@@ -387,10 +387,10 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         态: {
             _已销毁: boolean;
 
-            当下的数据系某次成功构建而得的: boolean;
+            该字典当下所持的数据系由某次构建而得: boolean;
             该字典诸字典条目内容映射表业已构建完毕: boolean;
-            当下正在构建数据: boolean;
-            期待_最末一次构建数据之任务已完毕: Promise<void>;
+            该字典当下正在构建数据: boolean;
+            期待_该字典最末一次数据构建任务已落定: Promise<void>;
         };
 
         为: {
@@ -430,7 +430,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
     >(
         this: 范_该字典机_其This,
 
-        所属字典群之总机?:
+        该字典所属字典群之总机?:
             范_字典群之总机<
                 范_该字典机_其This,
                 范_所属总机_内所谓标准字典_条目原式,
