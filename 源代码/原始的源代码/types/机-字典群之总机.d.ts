@@ -104,7 +104,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
      *
      * ────────────────────────────────
      *
-     * 1.  `'仅限那些允许参与数据自动构建任务且尚未构建过数据的字典参与'`
+     * 1.  `'仅限那些允许参与数据自动构建任务且尚无构建好之数据的字典参与'`
      *
      *     即为 `该字典在默认情形下不参与字典群总机发起的数据重建任务` 取 `true` 的那些字典机。
      *     但，若某字典已经构建过数据，则不参与。
@@ -126,7 +126,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
      *     换句话说，忽略【字典机】各自的 `该字典在默认情形下不参与字典群总机发起的数据重建任务` 之值。
      */
     export type 范_字典群之总机_成批重建字典数据之方案 = (
-        | '仅限那些允许参与数据自动构建任务且尚未构建过数据的字典参与'
+        | '仅限那些允许参与数据自动构建任务且尚无构建好之数据的字典参与'
         | '所有允许参与数据自动构建任务的字典均参与，不论其是否已构建好数据'
         | '强制一切字典参与，不论其是否已构建好数据'
     );
@@ -360,7 +360,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
 
 
-    export declare const 成批重建字典数据时之所有可能的方案: Array<范_字典群之总机_成批重建字典数据之方案>;
+    export declare const 某字典群之总机_成批重建字典数据之各色方案: Array<范_字典群之总机_成批重建字典数据之方案>;
 
     export declare function _作一字典群之总机_须以This调用 <
         范_该总机_其This = 范_字典机系统_其This之默认式,

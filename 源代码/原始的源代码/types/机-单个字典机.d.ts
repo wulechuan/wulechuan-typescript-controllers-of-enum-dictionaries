@@ -417,8 +417,8 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
 
 
-    export declare const 单个字典构建诸字典条目内容映射表时之各色候选方案: Array<范_单个字典构建诸字典条目内容映射表之方案>;
-    export declare const 单个字典构建诸字典条目内容映射表时之默认方案: 范_单个字典构建诸字典条目内容映射表之方案;
+    export declare const 单个字典_构建诸条目内容映射表之各色方案: Array<范_单个字典构建诸字典条目内容映射表之方案>;
+    export declare const 单个字典_构建诸条目内容映射表之默认方案: 范_单个字典构建诸字典条目内容映射表之方案;
     export declare const 字典特别条目_其代表全选者_默认的呈示称谓 = '〔全选〕';
     export declare const 字典特别条目_其代表全都不选者_默认的呈示称谓 = '〔全都不选〕';
     export declare function 作一字典机 <
