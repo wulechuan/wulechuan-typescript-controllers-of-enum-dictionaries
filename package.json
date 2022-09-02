@@ -27,13 +27,13 @@
         "prepublishOnly": "npm  run  构建所有须发布的文件"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.30.6",
-        "@typescript-eslint/parser": "^5.30.6",
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "@typescript-eslint/parser": "^5.36.1",
         "@wulechuan/cli-scripts--git-push": "^6.0.10",
         "@wulechuan/cli-scripts--npm-project-helpers": "^2.0.3",
         "@wulechuan/css-stylus-markdown-themes": "^7.8.3",
-        "eslint": "^8.20.0",
-        "typescript": "^4.7.4"
+        "eslint": "^8.23.0",
+        "typescript": "^4.8.2"
     },
     "homepage": "https://github.com/wulechuan/wulechuan-typescript-controllers-of-enum-dictionaries#readme",
     "repository": {
