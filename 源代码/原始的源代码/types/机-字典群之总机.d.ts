@@ -301,7 +301,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
             期待_迄今所有批次的字典机之数据重建任务均已完成: Promise<void>;
         };
 
-        为: {
+        为: { // wéi，指行为。
             追加一批字典: <
                 范_该批字典_条目原式_可能的默认形态 = 范_该总机_内所谓标准字典_条目原式
             >(

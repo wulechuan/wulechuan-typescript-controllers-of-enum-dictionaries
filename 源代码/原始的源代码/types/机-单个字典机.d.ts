@@ -393,7 +393,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
             期待_该字典最末一次数据构建任务已落定: Promise<void>;
         };
 
-        为: {
+        为: { // wéi，指行为。
             清空数据: () => void;
             重建数据: (...参数表_用以获取字典诸条目之原式: any[]) => Promise<void>;
             凭某条目之值求其呈示称谓: (所涉条目之值?: any) => string | null | undefined;
