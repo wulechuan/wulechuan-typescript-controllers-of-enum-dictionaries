@@ -298,7 +298,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
         态: {
             当下仍有字典机在构建数据: boolean;
-            期待_迄今所有批次的字典机之数据重建任务均已完成: Promise<void>;
+            期待_迄今所有批次的字典机之数据重建任务均已落定: Promise<void>;
         };
 
         为: { // wéi，指行为。

@@ -601,7 +601,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
 
         态: {
             当下仍有字典机在构建数据: false,
-            期待_迄今所有批次的字典机之数据重建任务均已完成: Promise.resolve(),
+            期待_迄今所有批次的字典机之数据重建任务均已落定: Promise.resolve(),
         },
 
         为: { // wéi，指行为。
@@ -666,7 +666,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
             当下仍有字典机在构建数据:
                 boolean;
 
-            期待_迄今所有批次的字典机之数据重建任务均已完成:
+            期待_迄今所有批次的字典机之数据重建任务均已落定:
                 Promise<void>;
         };
 
