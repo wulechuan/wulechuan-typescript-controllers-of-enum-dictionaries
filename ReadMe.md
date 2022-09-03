@@ -909,6 +909,11 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                 作一字典群之总机,
             } from '@wulechuan/controllers-of-enum-dictionaries'
 
+            import type {
+                范_字典条目内容映射表_从呈示称谓至值,
+                范_字典条目内容映射表_从值至呈示称谓,
+            } from '@wulechuan/controllers-of-enum-dictionaries'
+
             export type 范_本示范应用中一切字典之字典条目之原式 = {
                 /** 故意采用外国字，以示范在当今常见的项目中如何采用本工具（即指字典群总机）。 */
                 id: string;
@@ -942,7 +947,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                 {
                                     该字典之唯一标识: '字典甲',
 
-                                    诸事之应对: {
+                                    诸事之应对: { // 此乃【字典甲】独有的应对其诸事之办法。
                                         构建该字典所有条目之原式 () {
                                             return new Promise(落实之 => setTimeout(落实之, 2358)).then(() => {
                                                 const 数据列表: Array<范_本示范应用中一切字典之字典条目之原式> = [
@@ -969,6 +974,31 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                     },
                                 },
                             ],
+
+                            诸事之应对: { // 此乃【总机】应对其诸事之办法。
+                                内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法 (
+                                    某字典之一切条目之原式_其列表
+                                ) {
+                                    const 从呈示称谓至值: 范_字典条目内容映射表_从呈示称谓至值 = {}
+                                    const 从值至呈示称谓: 范_字典条目内容映射表_从值至呈示称谓 = {}
+
+                                    某字典之一切条目之原式_其列表.forEach(该字典某条目之原式 => {
+                                        const { id, label } = 该字典某条目之原式
+                                        从值至呈示称谓[id] = label
+                                        从呈示称谓至值[label] = id
+                                    })
+
+                                    return Promise.resolve({ 从呈示称谓至值, 从值至呈示称谓 })
+                                },
+
+                                内任何所谓标准字典_凭某条目之原式构建其视式_默认做法 (
+                                    某字典某条目之原式
+                                ) {
+                                    const { id, label } = 某字典某条目之原式
+                                    const 该字典该条目之视式 = { 唯一标识: id, 呈示称谓: label, 值: id }
+                                    return 该字典该条目之视式
+                                },
+                            },
                         }
                     )
                 }
@@ -978,6 +1008,10 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
         -   采用 JavaScript 语言之写法。
 
             ```javascript
+            import {
+                作一字典群之总机,
+            } from '@wulechuan/controllers-of-enum-dictionaries'
+
             export default {
                 name: 'Vue部件甲',
 
@@ -1001,7 +1035,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                 {
                                     该字典之唯一标识: '字典甲',
 
-                                    诸事之应对: {
+                                    诸事之应对: { // 此乃【字典甲】独有的应对其诸事之办法。
                                         构建该字典所有条目之原式 () {
                                             return new Promise(落实之 => setTimeout(落实之, 2358)).then(() => {
                                                 const 数据列表 = [
@@ -1028,6 +1062,31 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                     },
                                 },
                             ],
+
+                            诸事之应对: { // 此乃【总机】应对其诸事之办法。
+                                内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法 (
+                                    某字典之一切条目之原式_其列表
+                                ) {
+                                    const 从呈示称谓至值 = {}
+                                    const 从值至呈示称谓 = {}
+
+                                    某字典之一切条目之原式_其列表.forEach(该字典某条目之原式 => {
+                                        const { id, label } = 该字典某条目之原式
+                                        从值至呈示称谓[id] = label
+                                        从呈示称谓至值[label] = id
+                                    })
+
+                                    return Promise.resolve({ 从呈示称谓至值, 从值至呈示称谓 })
+                                },
+
+                                内任何所谓标准字典_凭某条目之原式构建其视式_默认做法 (
+                                    某字典某条目之原式
+                                ) {
+                                    const { id, label } = 某字典某条目之原式
+                                    const 该字典该条目之视式 = { 唯一标识: id, 呈示称谓: label, 值: id }
+                                    return 该字典该条目之视式
+                                },
+                            },
                         }
                     )
                 },

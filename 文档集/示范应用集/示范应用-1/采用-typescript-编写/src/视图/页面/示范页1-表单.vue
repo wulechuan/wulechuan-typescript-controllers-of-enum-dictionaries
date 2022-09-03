@@ -2,6 +2,14 @@
     <div class="页面 页面--示范页1">
         <div class="页面中央内容块">
             <el-row>
+                <el-alert
+                    title="请打开浏览器控制台观察输出日志。"
+                    type="success"
+                    :closable="false"
+                ></el-alert>
+            </el-row>
+
+            <el-row>
                 <article class="消息框">
                     <p>{{ 当下呈现的消息 }}</p>
                 </article>
@@ -29,8 +37,8 @@
 
             <el-row>
                 <el-button type="danger"  @click="删除字典('字典乙')">删除【字典乙】</el-button>
-                <el-button type="success" @click="重新构建字典乙('人为按下重构按钮')">重构【字典乙】</el-button>
-                <el-button type="primary" @click="令所有字典重建数据('人为按下重构按钮')">令所有 {{ 当下存在的所有字典机.length }} 个字典重建数据</el-button>
+                <el-button type="success" @click="重新制造字典乙('人为按下重造按钮')">重造全新的【字典乙】</el-button>
+                <el-button type="primary" @click="令所有字典重建数据('人为按下数据重建按钮')">令所有 {{ 当下存在的所有字典机.length }} 个字典重建数据</el-button>
             </el-row>
 
             <hr>
@@ -129,8 +137,8 @@ import {
 } from '@/数据服务接口'
 
 import{
-    内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
-    内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
+    本应用任何字典群之总机_内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
+    本应用任何字典群之总机_内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
 } from '@/控制器'
 
 
@@ -315,7 +323,7 @@ export default class Page示范页1 extends Vue {
         // })
     }
 
-    private 重新构建字典乙 (某次任务之补充描述?: string): void {
+    private 重新制造字典乙 (某次任务之补充描述?: string): void {
         const { 字典总机 } = this
 
         if (!字典总机) { return }
@@ -389,9 +397,9 @@ export default class Page示范页1 extends Vue {
                 第一批字典机形制要求总集_其列表: 诸字典之构建配置总集之列表,
 
                 诸事之应对: {
-                    内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
+                    内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法: 本应用任何字典群之总机_内任何所谓标准字典_凭字典条目原式之集构建诸字典条目内容映射表_默认做法,
 
-                    内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
+                    内任何所谓标准字典_凭某条目之原式构建其视式_默认做法: 本应用任何字典群之总机_内任何所谓标准字典_凭某条目之原式构建其视式_默认做法,
 
                     内任何字典_某次数据重建后_统一做法 (所涉字典所属字典群之总机, 所涉字典机) {
                         if (所涉字典机.该字典之唯一标识 === '字典乙') {
@@ -459,12 +467,21 @@ export default class Page示范页1 extends Vue {
     flex-direction column
     justify-content center
     align-items center
+    padding 1rem 0
 
     .页面中央内容块 {
         margin 0
         width 90%
         max-width 1000px
-        height 90%
+    }
+
+    hr {
+        display block
+        border-width 0
+        min-height 1px
+        max-height 1px
+        background-color transparent
+        background-image linear-gradient(to right, transparent 0%, rgba(black, 0.1) 10% 90%, transparent 100%)
     }
 
     h3 {
