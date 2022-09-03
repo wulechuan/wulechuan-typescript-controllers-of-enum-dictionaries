@@ -175,7 +175,7 @@ function 开发者为某字典给出的条目转换方案 (某条目之原式) {
 
 1. #### 术语【范】
 
-    所谓【范】，对应 TypeScript 或 JSDocs 概念中的 type 。一般译为【类型】，但本工具集及其配套文档坚持称【范】。例如：
+    所谓【范】，对应 TypeScript 或 JSDocs 概念中的 type 。一般译为【类型】。但本工具集及其配套文档坚持称【范】。例如：
 
     - TypeScript
 
@@ -1004,7 +1004,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                     诸事之应对: {
                                         构建该字典所有条目之原式 () {
                                             return new Promise(落实之 => setTimeout(落实之, 2358)).then(() => {
-                                                const 数据列表: Array<范_本示范应用中一切字典之字典条目之原式> = [
+                                                const 数据列表 = [
                                                     '九章算术',
                                                     '诗经',
                                                     '尚书',
@@ -1014,7 +1014,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
                                                     '史记',
                                                     '传习录',
                                                 ].map((名典之名称, 其列表编号) => {
-                                                    const 名典字典条目之原式: 范_本示范应用中一切字典之字典条目之原式 = {
+                                                    const 名典字典条目之原式 = {
                                                         id: `${其列表编号 + 1}`,
                                                         label: 名典之名称,
                                                     }
