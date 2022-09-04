@@ -343,7 +343,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
                 范_该字典机_其This
             >;
 
-        所持?:
+        还应持有?:
             范_字典机_范之零件_所持_形参准用式<
                 范_该字典机_其This,
                 范_该字典_条目原式,
@@ -400,7 +400,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
             自毁: () => void;
         } & ThisType<范_该字典机_其This>;
 
-        形制要求杂集:
+        形制杂项集:
             范_字典机_范之零件_形制要求杂集_完备式<
                 范_该字典机_其This
             >;

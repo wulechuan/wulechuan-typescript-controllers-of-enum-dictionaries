@@ -346,7 +346,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
             ) => Promise<void>;
         } & ThisType<范_该总机_其This>;
 
-        形制要求杂集: {
+        形制杂项集: {
             该总机的调试信息之详尽等级: number;
         };
 
