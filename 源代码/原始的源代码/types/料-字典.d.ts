@@ -47,7 +47,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         /** `呈示称谓` 字段默认取 '〔全选〕' 。 */
         字典条目之视式: Omit<范_该字典_条目视式, '呈示称谓'> & { 呈示称谓?: string; };
 
-        当正常候选项个数为零时仍采用本特别项?: boolean;
+        当正常候选项个数为零时仍允许采用本特别项?: boolean;
     };
 
     export type 范_字典_字典特别条目_其代表全选者_完备式<
@@ -55,7 +55,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
     > = {
         应位于候选列表之该处: '首部' | '尾部';
         字典条目之视式: 范_该字典_条目视式;
-        当正常候选项个数为零时仍采用本特别项: boolean;
+        当正常候选项个数为零时仍允许采用本特别项: boolean;
     };
 
     export type 范_字典_字典特别条目_其代表全都不选者_形参准用式<
