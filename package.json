@@ -4,6 +4,10 @@
     "author": "吴乐川 <wulechuan@live.com>",
     "license": "WTFPL",
     "description": "此乃吴乐川的《【字典群】之管理工具集》。本工具集对外提供唯一的主接口函数，名为 `作一字典群之总机` ，用以构建一个所谓【字典群之总机】以管理一个【字典群】。一个【字典群】可创建并管理多个【字典】。  并且，本工具集要求诸【字典】各自为其自身一切【条目】的【原式】构造出统一的所谓【视式】，以便在界面代码（例如 Vuejs 的模板）中统一采用。又，构造【原式】、【视式】之方法通常因【字典】而异，故均须开发者提供。",
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
     "type": "module",
     "engines": {
         "node": ">=14.16"
