@@ -362,7 +362,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
 
 
-    export declare const 某字典群之总机_成批重建字典数据之各色方案: Array<范_字典群之总机_成批重建字典数据之方案>;
+    export declare const 任何给定的字典群之总机_成批重建字典数据之各色方案: Array<范_字典群之总机_成批重建字典数据之方案>;
 
     export declare function _作一字典群之总机_须以This调用 <
         范_该总机_其This = 范_字典机系统_其This之默认式,
