@@ -28,7 +28,7 @@ import type {
 declare module '@wulechuan/controllers-of-enum-dictionaries' {
 
     /**
-     * 绑定 this 。
+     * 关于为各函数绑定 this 的做法。
      *
      * 1)  外界可以（借助【字典群之总机】的工厂函数）向【字典机】明确给出
      *     一个作为 this 的对象。
@@ -138,7 +138,7 @@ declare module '@wulechuan/controllers-of-enum-dictionaries' {
         该字典构建诸字典条目内容映射表之方案: 范_单个字典构建诸字典条目内容映射表之方案;
 
         /**
-         * 有些【字典】之【字典条目】依赖于其它变量，须临时反复构建。
+         * 有些【字典】之诸【条目】依赖于其它变量，须临时反复构建。
          * 且此种【字典】往往不必在模块加载初始时构建。
          *
          * 例如，假设有【中标企业】和【已参选的投标企业】两种字段。
