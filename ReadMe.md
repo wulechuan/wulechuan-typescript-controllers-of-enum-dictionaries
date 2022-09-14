@@ -1385,7 +1385,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
 
 1. #### 【字典群之总机】之工厂函数
 
-    该函数名为 `作一字典群之总机` ，共有两种重载。其【接口全貌】（外国话所谓 Signature）如下：
+    该函数名为 `作一字典群之总机` ，共有两种重载。其【接口全貌】如下：
 
     ```typescript
     declare module '@wulechuan/controllers-of-enum-dictionaries' {
@@ -1432,7 +1432,7 @@ npm  i  @wulechuan/controllers-of-enum-dictionaries
     } // declare module 语句块结束于此。
     ```
 
-    为便于阅读、理解和记忆，上述【接口全貌】可简写作下方形式：
+    为便于阅读、理解和记忆，上述【接口全貌】可简写作下方的非规范形式：
 
     ```typescript
     declare module '@wulechuan/controllers-of-enum-dictionaries' {
