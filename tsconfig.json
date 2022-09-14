@@ -10,7 +10,7 @@
         "skipDefaultLibCheck": true,
         "esModuleInterop": true,
         "rootDir": "./源代码/原始的源代码/typescript",
-        "outDir": "./源代码/发布的源代码/javascript",
+        "outDir": "./源代码/编译出的源代码/javascript",
         "declaration": false
     },
     "include": [
